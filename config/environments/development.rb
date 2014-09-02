@@ -31,6 +31,15 @@ CalenderApp::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
+  ActionMailer::Base.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    user_name: "calendarapp151@gmail.com",
+    password: "calendar123",
+    domain: "localhost:3000",
+    authentication: :login,
+    enable_starttls_auto: true
+  }
 
   # Expands the lines which load the assets
   config.assets.debug = true

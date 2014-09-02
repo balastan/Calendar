@@ -50,6 +50,15 @@ CalenderApp::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  ActionMailer::Base.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    user_name: "calendarapp151@gmail.com",
+    password: "calendar123",
+    domain: "http://agile-badlands-9375.herokuapp.com/",
+    authentication: :login,
+    enable_starttls_auto: true
+  }
 
   # Enable threaded mode
   # config.threadsafe!
