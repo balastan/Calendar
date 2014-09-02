@@ -49,9 +49,9 @@ CalenderApp::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.raise_delivery_errors = false
   
-  config.action_mailer.default_url_options = { :host => "http://agile-badlands-9375.herokuapp.com/" }
+  config.action_mailer.default_url_options = { :host => "http://agile-badlands-9375.herokuapp.com" }
 
   ActionMailer::Base.smtp_settings = {
     address: "smtp.gmail.com",
