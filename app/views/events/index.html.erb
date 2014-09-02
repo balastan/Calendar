@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
 <p><%= link_to "Create Category",  new_category_path%></p>
-<p><%= link_to "Create Event",  new_event_path%></p>
+<p><%= link_to "Create Event",  new_event_path%> <%= link_to "All Events",  list_events_path%></p>
 <h1>Calendar</h1>
 <div id="calendar">
 
 </div>
-</body>
-</html>
 
 <script>
   $(document).ready(function() {
     $('#calendar').fullCalendar({
-      events: '/events.json'
+      events: '/events.json',
+      header: {
+                left: 'today prev,next',
+                center: 'title',
+                right: 'month agendaWeek agendaDay'
+        },
     });
   });
 </script>

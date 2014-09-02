@@ -3,8 +3,8 @@ CalenderApp::Application.routes.draw do
   resources :categories
 
   resources :events do
-    member do
-      delete 'destroy'  
+    collection do
+      get 'list'  
     end
   end
 

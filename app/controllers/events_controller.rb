@@ -1,10 +1,17 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
-
   def index
     @events = Event.where(:user_id => current_user.id).joins(:category).select("title,start,categories.color")
 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
+  end
+
+  def list
+    @events = Event.where(:user_id => current_user.id)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }

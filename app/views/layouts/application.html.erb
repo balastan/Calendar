@@ -2,11 +2,9 @@
 <html>
 <head>
   <title>CalenderApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", :media => "all"%>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-  <script src="/assets/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
 </head>
 <body>
 <div>
@@ -39,4 +37,12 @@
   $(function() {
     $( ".datepicker" ).datepicker();
   });
+  $(document).ready(function(){
+  $('.button_to #delete').on('click', function(e){
+   res = confirm(" Are you sure?")
+   if (res == false){
+    e.preventDefault();
+   }
+})
+})
 </script>
