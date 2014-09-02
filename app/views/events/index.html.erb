@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p><%= link_to "Create Category",  new_category_path%></p>
+<p><%= link_to "Create Event",  new_event_path%></p>
+<h1>Calendar</h1>
+<div id="calendar">
+
+</div>
+</body>
+</html>
+
+<script>
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+      events: '/events.json'
+    });
+  });
+</script>
+

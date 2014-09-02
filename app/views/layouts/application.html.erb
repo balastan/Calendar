@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CalenderApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  <script src="/assets/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+</head>
+<body>
+<div>
+<div id="tabs1" >
+        <ul>
+        <% if user_signed_in? %>
+		  <li>Logged in as <strong><%= current_user.email %></strong></li>
+		  <li><%= link_to edit_user_registration_path  do %> <span>Edit profile</span><%end%></li> 
+		  <li><%= link_to destroy_user_session_path, method: :delete  do %> <span>Logout</span><%end%></li>
+		<% else %>
+		  <li><%= link_to new_user_registration_path, :class => 'navbar-link'  do %> <span>Sign up</span><%end%></li> 
+		  <li><%= link_to new_user_session_path, :class => 'navbar-link' do %> <span>Login</span><%end%></li>
+		<% end %>
+          <!-- <li><a href="/users/sign_in"><span>Sign In</span></a></li> -->
+        </ul>
+</div>
+<div>
+    <%if alert || notice%>
+    <p class="notice" style="color:red;width:500px;"><%= notice %></p>
+    <p class="alert" style="color:red;width:500px;"><%= alert %></p>
+    <%end%>
+</div>
+<div id="dvmainpanel">
+	<%= yield %>	
+</div>
+</div>
+</body>
+</html>
+<script>
+  $(function() {
+    $( ".datepicker" ).datepicker();
+  });
+</script>
